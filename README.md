@@ -8,7 +8,7 @@ There are great tools to do this task.
 For example: [telescope-heading.nvim](https://github.com/crispgm/telescope-heading.nvim).
 I want to do it by myself and I was looking for something small.
 My solution is not a complete plugin.
-It is a lua module belonging into the `~/.config/nvim/lua/my_modules/` path and the autocmds.lua, too.
+It is a lua module belonging into the `~/.config/nvim/lua/my_modules/` path, and the autocmds.lua, too.
 
 ## Usage
 In normal mode: `<leader>mh`
