@@ -1,11 +1,13 @@
 -- Create a local list of md-headings
 
--- Text-Zusammenbau
--- Heading level in Leerzeichen übersetzen
+
+-- Text-assembly
+
+-- Translate heading level to spaces
 local shifts_before_heading = { ["#"] = "",  ["##"] = "  ",  ["###"] = "    ",  
   ["####"] = "      ", ["#####"] = "        ", ["######"] = "          "}
 
--- Leerzeichen + Überschrift zusammenfügen
+-- Join spaces + headings
 local formated_heading = function (str)
 _, _ , level, heading = string.find(str, "^%s*(#+)%s+(.*)%s*$")
 
@@ -14,7 +16,7 @@ end
 
 
 local function qfHeadingsFormat(info)
--- Infos der Einträge der loc list (loc list ist nicht aktueller buffer, daher über winid sich die Infos besorgen
+-- info of the entires of the loc list (loc list isn't the actual buffer, therefore getting the info from winid
   local items = vim.fn.getloclist(info.winid)
 
 local l = {}
@@ -27,7 +29,7 @@ local l = {}
 end
 
 local function loc_list_md_headings()
--- Ich war nicht in der Lage das regex-Pattern als Attribut in vim.cmd zu übergeben, daher [[  ]]
+-- I wasn't able to use the regex-pattern as a attribute in vim.cmd, therefore [[  ]]
   vim.cmd([[lvimgrep/^\s*#\{1,6}\s/ %]])
 
   local qfWinId = vim.fn.getloclist(0, {winid = 0}).winid
